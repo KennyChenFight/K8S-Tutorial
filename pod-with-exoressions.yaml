@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-app-pod
+  labels:
+    app: web-app-pod
+spec:
+  containers:
+    - name: web-app
+      image: kennychenfight/web-app
+      ports:
+        - containerPort: 8080
