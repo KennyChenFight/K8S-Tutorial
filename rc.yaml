@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: web-app-replication-controller
+spec:
+  replicas: 3
+  selector:
+    app: web-app-pod
+  template:
+    metadata:
+      labels:
+        app: web-app-pod
+    spec:
+      containers:
+        - name: web-app
+          image: kennychenfight/web-app
+          ports:
+            - containerPort: 8080
