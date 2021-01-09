@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: web-app-replica-set
+  labels:
+    app: web-app-pod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web-app-pod
+  template:
+    metadata:
+      labels:
+        app: web-app-pod
+    spec:
+      containers:
+        - name: web-app
+          image: kennychenfight/web-app
+          ports:
+            - containerPort: 8080
