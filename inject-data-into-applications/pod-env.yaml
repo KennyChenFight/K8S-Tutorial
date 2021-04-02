@@ -12,7 +12,7 @@ spec:
       args:
         - while true; do
           echo -en '\n';
-          printenv MY_NODE_NAME MY_POD_NAME MY_POD_NAMESPACE MY_POD_LABEL;
+          printenv MY_NODE_NAME MY_POD_NAME MY_POD_NAMESPACE MY_POD_LABEL_APP;
           printenv MY_POD_IP MY_POD_SERVICE_ACCOUNT;
           sleep 10;
           done;
@@ -25,6 +25,10 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
+        - name: MY_POD_LABEL_APP
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app']
         - name: MY_POD_NAMESPACE
           valueFrom:
             fieldRef:
